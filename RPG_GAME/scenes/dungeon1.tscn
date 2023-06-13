@@ -27,4 +27,3 @@ curve = SubResource( 1 )
 position = Vector2( -960, -147 )
 scale = Vector2( 5, 5 )
 rotate = false
-speed = 5

@@ -1,7 +1,8 @@
 class_name PlayerController extends KinematicBody2D
 
-export var speed = 200
-var velocity
+export var speed:float = 200.0
+var velocity:Vector2
+var isAttacking:bool = false
 
 func _ready():
 	$AnimationTree.active = true
@@ -23,5 +24,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("attack"):
 		$AnimationTree.get("parameters/playback").travel("Attack")
 		
-	
 	move_and_slide(velocity * speed)
+
+func attack():
+	isAttacking = !isAttacking
+	print("isAttakcing = ", isAttacking)
