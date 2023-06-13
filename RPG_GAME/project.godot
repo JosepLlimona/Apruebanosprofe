@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "PathFollow2D",
+"class": "GoblinController",
+"language": "GDScript",
+"path": "res://Scripts/GoblinController.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "PlayerController",
 "language": "GDScript",
 "path": "res://Scripts/PlayerController.gd"
 } ]
 _global_script_class_icons={
+"GoblinController": "",
 "PlayerController": ""
 }
 

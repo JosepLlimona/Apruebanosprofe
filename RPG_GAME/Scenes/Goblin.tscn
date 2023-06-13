@@ -1,0 +1,250 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Tiny Adventure Pack Plus/Enemies/Goblin/goblin.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/GoblinController.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7, 8 )
+
+[sub_resource type="Animation" id=1]
+resource_name = "IdleDown"
+length = 0.8
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D/Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 0, 0, 0, 0, 0, 0 ),
+"update": 0,
+"values": [ Rect2( 2, 75, 14, 16 ), Rect2( 18, 76, 14, 15 ), Rect2( 34, 77, 14, 14 ), Rect2( 50, 77, 14, 14 ), Rect2( 66, 75, 14, 16 ), Rect2( 82, 75, 14, 16 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "IdleLeft"
+length = 0.8
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D/Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 0, 0, 0, 0, 0, 0 ),
+"update": 0,
+"values": [ Rect2( 5, 93, 10, 16 ), Rect2( 21, 93, 10, 16 ), Rect2( 37, 95, 10, 14 ), Rect2( 53, 95, 10, 14 ), Rect2( 69, 94, 10, 15 ), Rect2( 85, 93, 10, 16 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "IdleRight"
+length = 0.8
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D/Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 0, 0, 0, 0, 0, 0 ),
+"update": 0,
+"values": [ Rect2( 3, 111, 10, 16 ), Rect2( 19, 112, 10, 15 ), Rect2( 35, 113, 10, 14 ), Rect2( 51, 113, 10, 14 ), Rect2( 67, 111, 10, 16 ), Rect2( 83, 111, 10, 16 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "IdleUp"
+length = 0.8
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D/Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 0, 0, 0, 0, 0, 0 ),
+"update": 0,
+"values": [ Rect2( 2, 129, 14, 16 ), Rect2( 18, 130, 14, 15 ), Rect2( 34, 131, 14, 14 ), Rect2( 50, 131, 14, 14 ), Rect2( 66, 129, 14, 16 ), Rect2( 82, 129, 14, 16 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "WalkDown"
+length = 0.5
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D/Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 0, 0, 0, 0 ),
+"update": 0,
+"values": [ Rect2( 2, 147, 14, 16 ), Rect2( 34, 150, 14, 14 ), Rect2( 66, 148, 14, 16 ), Rect2( 82, 150, 14, 14 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "WalkLeft"
+length = 0.8
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D/Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 0, 0, 0, 0, 0, 0 ),
+"update": 0,
+"values": [ Rect2( 5, 169, 10, 14 ), Rect2( 21, 167, 10, 16 ), Rect2( 36, 166, 11, 16 ), Rect2( 53, 169, 10, 14 ), Rect2( 69, 167, 10, 16 ), Rect2( 84, 166, 11, 16 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "WalkRight"
+length = 0.8
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D/Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 0, 0, 0, 0, 0, 0 ),
+"update": 0,
+"values": [ Rect2( 3, 185, 11, 16 ), Rect2( 19, 186, 10, 16 ), Rect2( 35, 188, 10, 14 ), Rect2( 51, 185, 11, 16 ), Rect2( 67, 186, 10, 16 ), Rect2( 83, 188, 10, 14 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "WalkUp"
+length = 0.5
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D/Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 0, 0, 0, 0 ),
+"update": 0,
+"values": [ Rect2( 2, 204, 14, 16 ), Rect2( 34, 207, 14, 14 ), Rect2( 66, 205, 14, 16 ), Rect2( 82, 207, 14, 14 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "IdleDown"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "IdleUp"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "IdleRight"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "IdleLeft"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=14]
+blend_point_0/node = SubResource( 10 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 11 )
+blend_point_1/pos = Vector2( 0, -1 )
+blend_point_2/node = SubResource( 12 )
+blend_point_2/pos = Vector2( 1.1, 0 )
+blend_point_3/node = SubResource( 13 )
+blend_point_3/pos = Vector2( -1.1, 0 )
+min_space = Vector2( -1.1, -1.1 )
+max_space = Vector2( 1.1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "WalkDown"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "WalkUp"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "WalkRight"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "WalkLeft"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=19]
+blend_point_0/node = SubResource( 15 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 16 )
+blend_point_1/pos = Vector2( 0, -1 )
+blend_point_2/node = SubResource( 17 )
+blend_point_2/pos = Vector2( 1.1, 0 )
+blend_point_3/node = SubResource( 18 )
+blend_point_3/pos = Vector2( -1.1, 0 )
+min_space = Vector2( -1.1, -1.1 )
+max_space = Vector2( 1.1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachine" id=22]
+states/Idle/node = SubResource( 14 )
+states/Idle/position = Vector2( 201, 49 )
+states/Walk/node = SubResource( 19 )
+states/Walk/position = Vector2( 424, 49 )
+transitions = [ "Idle", "Walk", SubResource( 20 ), "Walk", "Idle", SubResource( 21 ) ]
+start_node = "Idle"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=23]
+
+[node name="Goblin" type="PathFollow2D"]
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 66, 205, 14, 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
+root_node = NodePath("../..")
+anims/IdleDown = SubResource( 1 )
+anims/IdleLeft = SubResource( 3 )
+anims/IdleRight = SubResource( 4 )
+anims/IdleUp = SubResource( 5 )
+anims/WalkDown = SubResource( 6 )
+anims/WalkLeft = SubResource( 7 )
+anims/WalkRight = SubResource( 8 )
+anims/WalkUp = SubResource( 9 )
+
+[node name="AnimationTree" type="AnimationTree" parent="Area2D"]
+tree_root = SubResource( 22 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 23 )
+parameters/Idle/blend_position = Vector2( -0.0017432, 0.0568966 )
+parameters/Walk/blend_position = Vector2( -0.115056, -0.0663793 )
+
+[node name="RayCast2D" type="RayCast2D" parent="Area2D"]
+enabled = true
+collide_with_areas = true
