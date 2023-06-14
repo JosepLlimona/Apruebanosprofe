@@ -6,6 +6,12 @@ var isAttacking:bool = false
 
 func _ready():
 	$AnimationTree.active = true
+	var map_limits = get_parent().get_used_rect()
+	var map_cellsize = get_parent().cell_size
+	$Camera2D.limit_left = map_limits.position.x * map_cellsize.x
+	$Camera2D.limit_right = map_limits.end.x * map_cellsize.x
+	$Camera2D.limit_top = map_limits.position.y * map_cellsize.y
+	$Camera2D.limit_bottom = map_limits.end.y * map_cellsize.y
 
 func _physics_process(delta):
 	var x_axis = Input.get_axis("ui_left","ui_right")
