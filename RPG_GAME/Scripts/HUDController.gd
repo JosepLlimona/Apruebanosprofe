@@ -23,3 +23,12 @@ func removeHeart():
 	if !hearts.empty():
 		hearts.pop_back().queue_free()
 		xPos -= 40
+
+func _unhandled_input(event:InputEvent) -> void:
+	if event is InputEventMouseButton and $Area2D.dintre:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			$Area2D.hide()
+			get_tree().set_input_as_handled()  # evitem que es propagui més l'input 
+
+func show_text(text):
+	$Area2D.posar_text(text)

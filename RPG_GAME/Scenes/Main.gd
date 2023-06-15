@@ -21,7 +21,8 @@ func iniciar_ciutat():
 		Global.pos_over=$Player.get_global_position()
 		$".".remove_child($TileMap)
 	var ciutat = ESC_CITY.instance() 
-	$".".add_child(ciutat, true)	
+	$".".add_child(ciutat, true)
+	$TileMap.connect("cartell", $TileMap, "_on_TileMap_cartell")
 	#camera limits
 	var map_limits = $TileMap.get_used_rect()
 	var map_cellsize = $TileMap.cell_size
@@ -94,3 +95,7 @@ func iniciar_overworld():
 	$Player/Camera2D.limit_top = map_limits.position.y * map_cellsize.y
 	$Player/Camera2D.limit_bottom = map_limits.end.y * map_cellsize.y
 	$".".move_child($Player, 2)
+
+
+func _on_TileMap_cartell():
+	$Player/Control.show_text("Hem perdut la espasa, qui la trobi se la pot quedar")

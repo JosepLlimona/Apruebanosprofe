@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/dungeons.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 69.857
+radius = 97.5141
 
 [node name="TileMap" type="TileMap"]
 tile_set = ExtResource( 1 )
@@ -27,7 +27,15 @@ position = Vector2( 544, 964 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
 
+[node name="cartells" type="Area2D" parent="."]
+position = Vector2( 543, -2154 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cartells"]
+shape = SubResource( 1 )
+
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 547, 680 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="cartells" to="." method="_on_cartells_body_entered"]
+[connection signal="body_exited" from="cartells" to="." method="_on_cartells_body_exited"]
