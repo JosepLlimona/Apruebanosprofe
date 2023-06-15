@@ -22,6 +22,9 @@ func _physics_process(delta):
 	var x_axis = Input.get_axis("ui_left","ui_right")
 	var y_axis = Input.get_axis("ui_up", "ui_down")
 	
+	if Input.is_action_just_pressed("ui_accept"):
+		addLife()
+	
 	velocity = Vector2(x_axis, y_axis)
 	velocity.normalized()
 	
@@ -40,6 +43,9 @@ func _physics_process(delta):
 func attack():
 	isAttacking = !isAttacking
 
+func addLife():
+	life += 1
+	$Control.addHeart()
 
 func getHurt():
 	$Camera2D.shake(0.1,10)

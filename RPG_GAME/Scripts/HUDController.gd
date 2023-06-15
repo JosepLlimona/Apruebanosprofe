@@ -8,20 +8,13 @@ var yPos = 3
 
 func startGame(life:int):
 	for i in life:
-		addHeart(xPos,yPos)
+		addHeart()
 
-
-func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		removeHeart()
-	elif Input.is_action_just_pressed("ui_cancel"):
-		addHeart(xPos,yPos)
-
-func addHeart(x,y):
+func addHeart():
 	var texture = TextureRect.new()
 	texture.texture = heartImage
 	texture.rect_scale = Vector2(5,5)
-	texture.rect_position = Vector2(x,y)
+	texture.rect_position = Vector2(xPos,yPos)
 	hearts.append(texture)
 	add_child(texture)
 	xPos += 40
