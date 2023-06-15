@@ -29,7 +29,7 @@ func _physics_process(delta):
 		$AnimationTree.set("parameters/Idle/blend_position", velocity)
 		$AnimationTree.set("parameters/Walk/blend_position", velocity)
 		$AnimationTree.set("parameters/Attack/blend_position", velocity)
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and Global.espasa_agafada:
 		$AnimationTree.get("parameters/playback").travel("Attack")
 		
 	move_and_slide(velocity * speed)
