@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://lil_dragon_v2/Amber.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/ObjecteBase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/ambar.gd" type="Script" id=3]
 
 [node name="ObjecteBase" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 texture = ExtResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_ObjecteBase_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_ObjecteBase_body_exited"]

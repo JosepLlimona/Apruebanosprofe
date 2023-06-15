@@ -15,7 +15,7 @@ var shooting:bool = false
 
 func _ready():
 	$Area2D/AnimationTree.active = true
-	player = get_parent().get_parent().get_node("Player")
+	player = get_parent().get_parent().get_parent().get_node("Player")
 
 func _physics_process(delta):
 	var playerDir = global_position.direction_to(player.global_position)

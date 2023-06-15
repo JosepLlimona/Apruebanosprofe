@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/ObjecteBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiny Adventure Pack Plus/Other/Items/Weapon/Sword2.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Sword.gd" type="Script" id=3]
 
 [node name="ObjecteBase" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
 
 [node name="Sword" type="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_ObjecteBase_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_ObjecteBase_body_exited"]
