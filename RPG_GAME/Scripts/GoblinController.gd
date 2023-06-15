@@ -15,7 +15,7 @@ var shooting:bool = false
 
 func _ready():
 	$Area2D/AnimationTree.active = true
-	player = get_parent().get_parent().get_node("Player")
+	player = get_parent().get_parent().get_parent().get_node("Player")
 
 func _physics_process(delta):
 	var playerDir = global_position.direction_to(player.global_position)
@@ -32,27 +32,31 @@ func _physics_process(delta):
 	elif !moving && !shooting:
 		$Area2D/AnimationTree.get("parameters/playback").travel("Idle")
 	
-#	if $Area2D/RayCast2D.get_collider() != null && ($Area2D/RayCast2D.get_collider().name == "Player" || $Area2D/RayCast2D.get_collider().name == "Arrow"):
-#		moving = false
-#		var dir = (player.position - self.position).normalized()
-#		$Area2D/AnimationTree.set("parameters/Idle/blend_position", dir)
-#		if !isShooting:
-#			isShooting = true
-#			timer = Timer.new()
-#			add_child(timer)
-#			timer.connect("timeout", self, "_on_Timer_timeout")
-#			timer.set_wait_time(attackVelocity)
-#			timer.set_one_shot(false)
-#			timer.start()
-#	else:
-#		if timer != null:
-#			isShooting = false
-#			timer.queue_free()
-#			timer = null
+	if $Area2D/RayCast2D.get_collider() != null && ($Area2D/RayCast2D.get_collider().name == "Player" || $Area2D/RayCast2D.get_collider().name == "Arrow"):
+		moving = false
+		var dir = (player.position - self.position).normalized()
+		$Area2D/AnimationTree.set("parameters/Idle/blend_position", dir)
+		if !isShooting:
+			isShooting = true
+			timer = Timer.new()
+			add_child(timer)
+			timer.connect("timeout", self, "_on_Timer_timeout")
+			timer.set_wait_time(attackVelocity)
+			timer.set_one_shot(false)
+			timer.start()
+	else:
+		if timer != null:
+			isShooting = false
+			timer.queue_free()
+			timer = null
 		moving = true
 	
 	if touchingPlayer && player.isAttacking:
+		var eIndex = Global.enemies.find(get_parent())
+		Global.enemies.remove(eIndex)
 		self.queue_free()
+		if Global.enemies.size() <= 0:
+			get_tree().current_scene.activarJoia()
 
 func _on_Timer_timeout():
 	shooting = true
@@ -68,11 +72,9 @@ func shoot():
 
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
-		print("Player entrat")
 		touchingPlayer = true
 
 
 func _on_Area2D_body_exited(body):
 	if body.name == "Player":
-		print("Player sortit")
 		touchingPlayer = false

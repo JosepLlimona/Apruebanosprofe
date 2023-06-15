@@ -10,7 +10,7 @@ extents = Vector2( 7, 8 )
 
 [sub_resource type="Animation" id=25]
 resource_name = "AttackDown"
-length = 0.35
+length = 0.4
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Sprite:region_rect")
@@ -44,7 +44,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=26]
 resource_name = "AttackLeft"
-length = 0.21
+length = 0.26
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Sprite:region_rect")
@@ -78,7 +78,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=27]
 resource_name = "AttackRight"
-length = 0.21
+length = 0.26
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Sprite:region_rect")
@@ -112,7 +112,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=28]
 resource_name = "AttakUp"
-length = 0.35
+length = 0.4
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Sprite:region_rect")
@@ -398,7 +398,7 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 2, 166, 14, 16 )
+region_rect = Rect2( 117, 5, 22, 14 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

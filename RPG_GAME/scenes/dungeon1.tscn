@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://dungeon.tres" type="TileSet" id=1]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Goblin.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Rubi.tscn" type="PackedScene" id=4]
 
@@ -115,7 +114,3 @@ curve = SubResource( 7 )
 position = Vector2( -501, -4335 )
 scale = Vector2( 5, 5 )
 rotate = false
-
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 495, -3137 )
-scale = Vector2( 5, 5 )

@@ -1,10 +1,11 @@
 extends Node
 
-var espasa_agafada=false
+var espasa_agafada=true
 var rubi_agafat=false
 var zafir_agafat=false
 var ambar_agafat=false
 var pos_over
+var enemies = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -9,11 +9,12 @@ func _ready():
 func _unhandled_input(event:InputEvent) -> void:
 	if contact:
 		if event.is_action_pressed("Pick"):
-			#Global.agafar_objecte("rubi")
-			#queue_free()
-			print("Agafat")
+			Global.agafar_objecte("rubi")
+			get_tree().current_scene.get_node("Player").addLife()
+			queue_free()
 
 func activar():
+	self.visible = true
 	self.monitoring = true
 
 func _on_ObjecteBase_body_entered(body):

@@ -21,7 +21,11 @@ margin_bottom = -13.0
 rect_scale = Vector2( 1.5, 1.5 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 4
+visible_characters = 0
+percent_visible = 0.0
 fit_content_height = true
+
+[node name="Tween" type="Tween" parent="RichTextLabel"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.5, -1 )

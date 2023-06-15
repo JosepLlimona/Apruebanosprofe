@@ -48,6 +48,9 @@ func iniciar_dungeon_1():
 	$Player/Camera2D.limit_top = map_limits.position.y * map_cellsize.y
 	$Player/Camera2D.limit_bottom = map_limits.end.y * map_cellsize.y
 	$".".move_child($Player, 2)
+	for child in $TileMap.get_children():
+		if child.is_class("Path2D"):
+			Global.enemies.append(child)
 
 func iniciar_dungeon_2():
 	Global.pos_over=$Player.get_global_position()
@@ -95,6 +98,9 @@ func iniciar_overworld():
 	$Player/Camera2D.limit_top = map_limits.position.y * map_cellsize.y
 	$Player/Camera2D.limit_bottom = map_limits.end.y * map_cellsize.y
 	$".".move_child($Player, 2)
+
+func activarJoia():
+	$TileMap.get_node("detalls").get_node("ObjecteBase").activar()
 
 
 func _on_TileMap_cartell():

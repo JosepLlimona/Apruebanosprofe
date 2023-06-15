@@ -9,3 +9,7 @@ script = ExtResource( 2 )
 [node name="Area2D" parent="." instance=ExtResource( 1 )]
 visible = false
 position = Vector2( 520, 473 )
+
+[node name="Timer" type="Timer" parent="Area2D"]
+
+[connection signal="timeout" from="Area2D/Timer" to="Area2D" method="_on_Timer_timeout"]
