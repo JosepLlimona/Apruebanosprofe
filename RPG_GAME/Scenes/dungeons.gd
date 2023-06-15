@@ -17,16 +17,14 @@ func _on_Area2D_body_entered(body):
 
 func _on_cartells_body_entered(body):
 	if(body.get_name()=="Player"):
-		print("dintre")
 		mirar_cartell=true
 
 
 func _on_cartells_body_exited(body):
 	if(body.get_name()=="Player"):
-		print("fora")
 		mirar_cartell=false
 
 func _unhandled_input(event:InputEvent) -> void:
 	if mirar_cartell:
 		if event.is_action_pressed("Pick"):
-			emit_signal("cartell")
+			Global.mirar_cart()

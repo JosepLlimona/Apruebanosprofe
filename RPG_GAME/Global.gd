@@ -36,3 +36,6 @@ func entrar_instancia(inst):
 		get_node("/root/Main_scenario").iniciar_dungeon_2()
 	elif(inst=="dung3"):
 		get_node("/root/Main_scenario").iniciar_dungeon_3()
+
+func mirar_cart():
+	get_node("/root/Main_scenario")._on_TileMap_cartell()

@@ -22,7 +22,6 @@ func iniciar_ciutat():
 		$".".remove_child($TileMap)
 	var ciutat = ESC_CITY.instance() 
 	$".".add_child(ciutat, true)
-	$TileMap.connect("cartell", $TileMap, "_on_TileMap_cartell")
 	#camera limits
 	var map_limits = $TileMap.get_used_rect()
 	var map_cellsize = $TileMap.cell_size

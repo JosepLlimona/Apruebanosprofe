@@ -31,4 +31,5 @@ func _unhandled_input(event:InputEvent) -> void:
 			get_tree().set_input_as_handled()  # evitem que es propagui més l'input 
 
 func show_text(text):
+	$Area2D.show()
 	$Area2D.posar_text(text)
