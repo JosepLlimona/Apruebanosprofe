@@ -1,8 +1,8 @@
 extends Node
 
 var espasa_agafada=false
-var rubi_agafat=true
-var zafir_agafat=true
+var rubi_agafat=false
+var zafir_agafat=false
 var ambar_agafat=false
 var pos_over
 
