@@ -9,8 +9,12 @@ func _ready():
 func _unhandled_input(event:InputEvent) -> void:
 	if contact:
 		if event.is_action_pressed("Pick"):
-			Global.agafar_objecte("ambar")
-			.queue_free()
+			#Global.agafar_objecte("ambar")
+			#queue_free()
+			print("Agafat")
+
+func activar():
+	self.monitoring = true
 
 func _on_ObjecteBase_body_entered(body):
 	contact=true

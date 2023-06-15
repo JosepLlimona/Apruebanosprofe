@@ -9,6 +9,7 @@ var ESC_PERS:= preload("res://Scenes/Player.tscn")
 var first_over=true
 # Called when the node enters the scene tree for the first time.
 
+
 func _ready():
 	first_over=true
 	var pers = ESC_PERS.instance() 

@@ -12,6 +12,9 @@ func _unhandled_input(event:InputEvent) -> void:
 			Global.agafar_objecte("espasa")
 			.queue_free()
 
+func activar():
+	self.monitoring = true
+
 func _on_ObjecteBase_body_entered(body):
 	contact=true
 
