@@ -13,6 +13,8 @@ func _physics_process(delta):
 	var c = move_and_collide(v)
 	if c and c.collider:
 		queue_free()
+		if c.collider.name == "Player":
+			c.collider.getHurt()
 
 
 

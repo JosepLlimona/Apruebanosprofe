@@ -2,6 +2,7 @@ class_name GoblinController extends PathFollow2D
 
 export var speed:float = 5.0
 export var maxDistance:float = 60.0
+export var attackVelocity:float = 3.0
 
 var arrowScene = preload("res://Scenes/Arrow.tscn")
 
@@ -40,7 +41,7 @@ func _physics_process(delta):
 			timer = Timer.new()
 			add_child(timer)
 			timer.connect("timeout", self, "_on_Timer_timeout")
-			timer.set_wait_time(1.0)
+			timer.set_wait_time(attackVelocity)
 			timer.set_one_shot(false)
 			timer.start()
 	else:
@@ -52,8 +53,6 @@ func _physics_process(delta):
 	
 	if touchingPlayer && player.isAttacking:
 		self.queue_free()
-	elif touchingPlayer:
-		print("Hurting")
 
 func _on_Timer_timeout():
 	shooting = true
@@ -63,7 +62,6 @@ func _on_Timer_timeout():
 	arrow.global_position = $Area2D/RayCast2D.global_position
 	add_child(arrow)
 	$Area2D/AnimationTree.get("parameters/playback").travel("Shoot")
-	print($Area2D/AnimationTree.get("parameters/playback").get_current_node())
 	
 func shoot():
 	shooting = false

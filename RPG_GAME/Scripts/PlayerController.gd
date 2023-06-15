@@ -3,8 +3,11 @@ class_name PlayerController extends KinematicBody2D
 export var speed:float = 200.0
 var velocity:Vector2
 var isAttacking:bool = false
+var life = 3
+var timer:Timer
 
 func _ready():
+	$Control.startGame(life)
 	$AnimationTree.active = true
 	var map_limits = get_parent().get_used_rect()
 	var map_cellsize = get_parent().cell_size
@@ -14,6 +17,8 @@ func _ready():
 	$Camera2D.limit_bottom = map_limits.end.y * map_cellsize.y
 
 func _physics_process(delta):
+	
+	#$Camera2D.set_offset(Vector2(rand_range(-1.0, 1.0) * 1, rand_range(-1.0, 1.0) * 1))
 	var x_axis = Input.get_axis("ui_left","ui_right")
 	var y_axis = Input.get_axis("ui_up", "ui_down")
 	
@@ -34,4 +39,11 @@ func _physics_process(delta):
 
 func attack():
 	isAttacking = !isAttacking
-	print("isAttakcing = ", isAttacking)
+
+
+func getHurt():
+	$Camera2D.shake(0.1,10)
+	$Control.removeHeart()
+	life -= 1
+	if life <= 0:
+		pass #Canviar a escene final o el que sigui
