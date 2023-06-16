@@ -24,22 +24,22 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/HUDController.gd"
 }, {
+"base": "CanvasLayer",
+"class": "PauseController",
+"language": "GDScript",
+"path": "res://Scripts/PauseController.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "PlayerController",
 "language": "GDScript",
 "path": "res://Scripts/PlayerController.gd"
-}, {
-"base": "CanvasLayer",
-"class": "PuaseController",
-"language": "GDScript",
-"path": "res://Scripts/PauseController.gd"
 } ]
 _global_script_class_icons={
 "Arrow": "",
 "GoblinController": "",
 "HudController": "",
-"PlayerController": "",
-"PuaseController": ""
+"PauseController": "",
+"PlayerController": ""
 }
 
 [application]

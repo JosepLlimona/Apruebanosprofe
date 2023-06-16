@@ -52,5 +52,14 @@ margin_bottom = 552.0
 rect_scale = Vector2( 1.5, 1.5 )
 text = "Sortir"
 
+[node name="load" type="Button" parent="."]
+margin_left = 851.0
+margin_top = 486.0
+margin_right = 915.0
+margin_bottom = 506.0
+rect_scale = Vector2( 1.5, 1.5 )
+text = "Carregar"
+
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="sortir" to="." method="_on_sortir_pressed"]
+[connection signal="pressed" from="load" to="." method="_on_load_pressed"]

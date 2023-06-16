@@ -14,12 +14,16 @@ func _ready():
 func _unhandled_input(event:InputEvent) -> void:
 	if event.is_action_pressed("Pick"):
 		if(area_city and !Global.espasa_agafada):
+			Global.pos_over=get_parent().get_node("Player").get_global_position()
 			Global.entrar_instancia("city")
 		elif(area_dung1 and !Global.rubi_agafat):
+			Global.pos_over=get_parent().get_node("Player").get_global_position()
 			Global.entrar_instancia("dung1")
 		elif(area_dung2 and Global.rubi_agafat and !Global.zafir_agafat):
+			Global.pos_over=get_parent().get_node("Player").position
 			Global.entrar_instancia("dung2")
 		elif(area_dung3 and Global.rubi_agafat and Global.zafir_agafat and !Global.ambar_agafat):
+			Global.pos_over=get_parent().get_node("Player").get_global_position()
 			Global.entrar_instancia("dung3")
 
 func _on_City_body_entered(body):

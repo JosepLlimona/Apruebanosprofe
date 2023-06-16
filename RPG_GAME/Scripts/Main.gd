@@ -6,29 +6,43 @@ var ESC_DUNG_3:= preload("res://Scenes/dungeon3.tscn")
 var ESC_CITY:= preload("res://Scenes/city.tscn")
 var ESC_OVER:= preload("res://Scenes/overworld.tscn")
 var ESC_PERS:= preload("res://Scenes/Player.tscn")
-var first_over=true
 # Called when the node enters the scene tree for the first time.
 
 var currentSpace = null
 
 func _ready():
-	first_over=true
-	var pers = ESC_PERS.instance() 
-	$".".add_child(pers, true)
-	Global.pos_over=$Player.get_global_position()
-	iniciar_ciutat()
+	var pers = ESC_PERS.instance()
+	pers.set_scale(Vector2(5,5)) 
+	add_child(pers, true)
+	if Global.isLoad:
+		if Global.currentScene == "dung1":
+			iniciar_dungeon_1()
+		elif Global.currentScene == "dung2":
+			iniciar_dungeon_2()
+		elif Global.currentScene == "dung3":
+			iniciar_dungeon_3()
+		elif Global.currentScene == "overworld":
+			iniciar_overworld()
+		else:
+			iniciar_ciutat()
+	else:
+		Global.first_over=true
+		iniciar_ciutat()
 	
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		print("Falten: ", Global.enemies.size())
 		print("Morts: ", Global.dung1EKilled.size(), ": ", Global.dung1EKilled)
+		print("Tree: ", get_children())
+		print("Local pos: ", Global.pos_load)
+		print("Over pos: ", Global.pos_over)
 
 func iniciar_ciutat():
-	if(!first_over):
-		Global.pos_over=$Player.get_global_position()
-		$".".remove_child($TileMap)
+	if(!Global.first_over):
+		if "TileMap" in get_child(0).name:
+			get_child(0).queue_free()
 	var ciutat = ESC_CITY.instance() 
-	$".".add_child(ciutat, true)
+	add_child(ciutat, true)
 	#camera limits
 	var map_limits = $TileMap.get_used_rect()
 	var map_cellsize = $TileMap.cell_size
@@ -36,18 +50,25 @@ func iniciar_ciutat():
 	$Player/Camera2D.limit_right = map_limits.end.x * map_cellsize.x
 	$Player/Camera2D.limit_top = map_limits.position.y * map_cellsize.y
 	$Player/Camera2D.limit_bottom = map_limits.end.y * map_cellsize.y
-	$".".move_child($Player, 2)
-	$Player.set_scale(Vector2(5,5))
+	move_child($Player, 2)
 	$Player.set_global_position($TileMap/Position2D.get_global_position())
-	currentSpace = ciutat
+	if Global.isLoad:
+		$Player.set_global_position(Global.pos_load)
+		if Global.espasa_agafada:
+			print("Entro")
+			ciutat.get_node("ObjecteBase").queue_free()
+	Global.currentScene = "city"
 
 func iniciar_dungeon_1():
-	Global.pos_over=$Player.get_global_position()
-	get_child(0).queue_free()
+	if "TileMap" in get_child(0).name:
+		get_child(0).queue_free()
 	var dung1 = ESC_DUNG_1.instance() 
 	call_deferred("add_child", dung1)
 	call_deferred("move_child", dung1,0)
 	$Player.set_global_position(dung1.get_node("Position2D").position)
+	if Global.isLoad && !Global.first_dung1:
+		$Player.set_global_position(Global.pos_load)
+	Global.first_dung1 = false
 	#camera limits
 	var map_limits = dung1.get_used_rect()
 	var map_cellsize = dung1.cell_size
@@ -63,15 +84,17 @@ func iniciar_dungeon_1():
 		var eIndex = Global.enemies.find(g)
 		dung1.get_node(g).queue_free()
 		Global.enemies.remove(eIndex)
-	currentSpace = dung1
+	Global.currentScene = "dung1"
 
 func iniciar_dungeon_2():
-	Global.pos_over=$Player.get_global_position()
-	get_child(0).queue_free()
+	if "TileMap" in get_child(0).name:
+		get_child(0).queue_free()
 	var dung2 = ESC_DUNG_2.instance() 
 	call_deferred("add_child", dung2)
 	call_deferred("move_child", dung2,0)
 	$Player.set_global_position(dung2.position)
+	if Global.isLoad:
+		$Player.set_global_position(Global.pos_load)
 	#camera limits
 	var map_limits = dung2.get_used_rect()
 	var map_cellsize = dung2.cell_size
@@ -83,15 +106,17 @@ func iniciar_dungeon_2():
 	for child in dung2.get_children():
 		if child.is_class("Path2D"):
 			Global.enemies.append(child)
-	currentSpace = dung2
+	Global.currentScene = "dung2"
 
 func iniciar_dungeon_3():
-	Global.pos_over=$Player.get_global_position()
-	get_child(0).queue_free()
+	if "TileMap" in get_child(0).name:
+		get_child(0).queue_free()
 	var dung3 = ESC_DUNG_3.instance() 
 	call_deferred("add_child", dung3)
 	call_deferred("move_child", dung3, 0)
 	$Player.set_global_position(dung3.get_node("Position2D").position)
+	if Global.isLoad:
+		$Player.set_global_position(Global.pos_load)
 	#camera limits
 	var map_limits = dung3.get_used_rect()
 	var map_cellsize = dung3.cell_size
@@ -103,15 +128,17 @@ func iniciar_dungeon_3():
 	for child in dung3.get_children():
 		if child.is_class("Path2D"):
 			Global.enemies.append(child)
-	currentSpace = dung3
+	Global.currentScene = "dung3"
 
 func iniciar_overworld():
-	get_child(0).queue_free()
+	if "TileMap" in get_child(0).name:
+		Global.pos_load = get_child(0).get_node("Position2D").position
+		get_child(0).queue_free()
 	var overworld = ESC_OVER.instance() 
 	call_deferred("add_child", overworld)
 	call_deferred("move_child",overworld,0)
-	if(first_over):
-		first_over=false
+	if(Global.first_over):
+		Global.first_over=false
 		Global.pos_over = overworld.get_node("Position2D").position
 	$Player.set_global_position(Global.pos_over)
 	#camera limits
@@ -121,7 +148,8 @@ func iniciar_overworld():
 	$Player/Camera2D.limit_right = map_limits.end.x * map_cellsize.x
 	$Player/Camera2D.limit_top = map_limits.position.y * map_cellsize.y
 	$Player/Camera2D.limit_bottom = map_limits.end.y * map_cellsize.y
-	currentSpace = overworld
+	Global.currentScene = "overworld"
+	print(get_children())
 
 func activarJoia():
 	if currentSpace in "dung":
@@ -133,3 +161,11 @@ func _on_TileMap_cartell():
 
 func _on_TileMap_cartell_amaga():
 	$Player/Control.hide_text()
+	
+func get_player_pos():
+	return $Player.get_global_position()
+	
+func exit():
+	for n in get_children():
+		remove_child(n)
+		n.queue_free()
