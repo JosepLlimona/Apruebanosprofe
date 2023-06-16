@@ -4,10 +4,10 @@ var ESC_MAIN:= preload("res://Scenes/Main.tscn")
 var ESC_MENU:= preload("res://Scenes/Menu_Principal.tscn")
 var ESC_FINAL:= preload("res://Scenes/escena_final.tscn")
 
-var espasa_agafada=false
-var rubi_agafat=false
-var zafir_agafat=false
-var ambar_agafat=false
+var espasa_agafada = true
+var rubi_agafat = false
+var zafir_agafat = false
+var ambar_agafat = false
 var pos_over
 var pos_load
 var currentScene = ""
