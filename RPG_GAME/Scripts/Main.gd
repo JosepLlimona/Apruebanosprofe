@@ -105,3 +105,6 @@ func activarJoia():
 
 func _on_TileMap_cartell():
 	$Player/Control.show_text("Hem perdut la espasa, qui la trobi se la pot quedar")
+
+func _on_TileMap_cartell_amaga():
+	$Player/Control.hide_text()

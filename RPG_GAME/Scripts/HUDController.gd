@@ -33,3 +33,6 @@ func _unhandled_input(event:InputEvent) -> void:
 func show_text(text):
 	$Area2D.show()
 	$Area2D.posar_text(text)
+
+func hide_text():
+	$Area2D.hide()

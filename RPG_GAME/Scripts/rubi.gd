@@ -22,3 +22,4 @@ func _on_ObjecteBase_body_entered(body):
 
 func _on_ObjecteBase_body_exited(body):
 	contact=false
+

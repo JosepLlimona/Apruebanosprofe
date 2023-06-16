@@ -40,3 +40,6 @@ func entrar_instancia(inst):
 
 func mirar_cart():
 	get_node("/root/Main_scenario")._on_TileMap_cartell()
+
+func amaga_cart():
+	get_node("/root/Main_scenario")._on_TileMap_cartell_amaga()
