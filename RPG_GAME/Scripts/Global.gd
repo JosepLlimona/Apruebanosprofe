@@ -4,8 +4,9 @@ var ESC_MAIN:= preload("res://Scenes/Main.tscn")
 var ESC_MENU:= preload("res://Scenes/Menu_Principal.tscn")
 var ESC_FINAL:= preload("res://Scenes/escena_final.tscn")
 
+
 var espasa_agafada = true
-var rubi_agafat = false
+var rubi_agafat = true
 var zafir_agafat = false
 var ambar_agafat = false
 var pos_over
@@ -13,6 +14,8 @@ var pos_load
 var currentScene = ""
 var first_over = true
 var first_dung1 = true
+var first_dung2 = true
+var first_dung3 = true
 
 var enemies = []
 var dung1EKilled = []
@@ -70,10 +73,10 @@ func iniciar_joc():
 func sortir_menu():
 	get_tree().current_scene.exit()
 	get_tree().change_scene_to(ESC_MENU)
-
+	
 func reiniciar_menu():
 	get_tree().change_scene_to(ESC_MENU)
-
+	
 func get_json():
 	if currentScene == "overworld":
 		pos_over = get_tree().current_scene.get_player_pos()
@@ -89,7 +92,9 @@ func get_json():
 		"pos_over": var2str(pos_over),
 		"current_scene": currentScene,
 		"first_over": first_over,
-		"first_dung1": first_dung1
+		"first_dung1": first_dung1,
+		"first_dung2": first_dung2,
+		"first_dung3": first_dung3
 	}
 	return ret
 	
@@ -97,7 +102,7 @@ func load_game():
 	var file = File.new()
 	if file.file_exists(FILE_NAME):
 		file.open(FILE_NAME,File.READ)
-		var data = parse_json(file.get_as_text())
+		data = parse_json(file.get_as_text())
 		file.close()
 		espasa_agafada = data.espasa_agafada
 		rubi_agafat = data.rubi_agafat
@@ -111,6 +116,8 @@ func load_game():
 		pos_over = str2var(data.pos_over)
 		first_over = data.first_over
 		first_dung1 = data.first_dung1
+		first_dung2 = data.first_dung2
+		first_dung3 = data.first_dung3
 		iniciar_joc()
 		isLoad = true
 		print(data)

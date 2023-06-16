@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/dungeons.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Goblin.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Amber.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -66,7 +65,7 @@ position = Vector2( 7392, -1816 )
 monitoring = false
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 511, 1127 )
+position = Vector2( 510, 1124 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -83,10 +82,6 @@ scale = Vector2( 5, 5 )
 rotate = false
 currentDungeon = 2
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 855, -462 )
-scale = Vector2( 5, 5 )
-
 [node name="Path2D2" type="Path2D" parent="."]
 curve = SubResource( 3 )
 
@@ -94,6 +89,7 @@ curve = SubResource( 3 )
 position = Vector2( -344, -1288 )
 rotation = 3.07322
 scale = Vector2( 5, 5 )
+rotate = false
 currentDungeon = 2
 
 [node name="Path2D3" type="Path2D" parent="."]
@@ -121,6 +117,7 @@ curve = SubResource( 6 )
 position = Vector2( 1847, -3215 )
 rotation = 0.37385
 scale = Vector2( 5, 5 )
+rotate = false
 currentDungeon = 2
 
 [node name="Path2D6" type="Path2D" parent="."]
