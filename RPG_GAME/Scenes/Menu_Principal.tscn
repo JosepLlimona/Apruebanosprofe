@@ -34,7 +34,13 @@ margin_left = 100.0
 margin_top = 444.0
 margin_right = 670.0
 margin_bottom = 484.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 4
 fit_content_height = true
+
+[node name="Tween" type="Tween" parent="RichTextLabel"]
+playback_speed = 0.2
+playback/speed = 0.2
 
 [node name="start" type="Button" parent="."]
 margin_left = 826.0
