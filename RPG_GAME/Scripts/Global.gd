@@ -1,5 +1,8 @@
 extends Node
 
+var ESC_MAIN:= preload("res://Scenes/Main.tscn")
+var ESC_MENU:= preload("res://Scenes/Menu_Principal.tscn")
+
 var espasa_agafada=true
 var rubi_agafat=false
 var zafir_agafat=false
@@ -48,3 +51,9 @@ func mirar_cart():
 
 func amaga_cart():
 	get_node("/root/Main_scenario")._on_TileMap_cartell_amaga()
+
+func iniciar_joc():
+	get_tree().change_scene_to(ESC_MAIN)
+
+func sortir_menu():
+	get_tree().change_scene_to(ESC_MENU)

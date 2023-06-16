@@ -11,7 +11,7 @@ func _on_ContinueButton_pressed():
 
 
 func _on_ExitButton_pressed():
-	print("Sortir")
+	Global.sortir_menu()
 
 
 func _on_ExitGameButton_pressed():
