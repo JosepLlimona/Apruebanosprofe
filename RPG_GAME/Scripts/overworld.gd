@@ -23,7 +23,7 @@ func _unhandled_input(event:InputEvent) -> void:
 			print("Entrant dung2")
 			Global.pos_over=get_parent().get_node("Player").position
 			Global.entrar_instancia("dung2")
-		elif(area_dung3 and Global.rubi_agafat and Global.amabar_agafat and !Global.zafir_agafat):
+		elif(area_dung3 and Global.rubi_agafat and Global.ambar_agafat and !Global.zafir_agafat):
 			Global.pos_over=get_parent().get_node("Player").get_global_position()
 			Global.entrar_instancia("dung3")
 
