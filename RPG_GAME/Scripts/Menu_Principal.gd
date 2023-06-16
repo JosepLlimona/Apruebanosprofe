@@ -5,6 +5,7 @@ func _ready():
 
 func _on_start_pressed():
 	Global.iniciar_joc()
+	get_tree().paused = false
 
 
 func _on_sortir_pressed():

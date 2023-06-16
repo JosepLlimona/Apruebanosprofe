@@ -2,9 +2,10 @@
 
 [ext_resource path="res://dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://msg box 10-2-2.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Menu_Principal.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Menu_Principal.gd" type="Script" id=3]
 
 [node name="Node2D" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 3 )
 
 [node name="TileMap" type="TileMap" parent="."]
