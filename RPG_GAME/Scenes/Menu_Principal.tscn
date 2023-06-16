@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://msg box 10-2-2.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Menu_Principal.gd" type="Script" id=3]
+[ext_resource path="res://Tariyo.png" type="Texture" id=4]
 
 [node name="Node2D" type="Node2D"]
 pause_mode = 2
@@ -22,6 +23,11 @@ tile_data = PoolIntArray( 0, 31, 0, 1, 31, 0, 14, 31, 0, 15, 31, 0, 65536, 31, 0
 position = Vector2( 386, 495 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
+
+[node name="Titol" type="Sprite" parent="."]
+position = Vector2( 511, 140 )
+scale = Vector2( 1.75, 1.75 )
+texture = ExtResource( 4 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = 100.0
