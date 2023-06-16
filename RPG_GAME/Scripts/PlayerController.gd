@@ -4,6 +4,7 @@ export var speed:float = 200.0
 var velocity:Vector2
 var isAttacking:bool = false
 var life = 3
+var maxHealt = 3
 var timer:Timer
 
 func _ready():
@@ -40,6 +41,7 @@ func attack():
 
 func addLife():
 	life += 1
+	maxHealt +=1
 	$Control.addHeart()
 
 func getHurt():
@@ -47,4 +49,11 @@ func getHurt():
 	$Control.removeHeart()
 	life -= 1
 	if life <= 0:
-		pass #Canviar a escene final o el que sigui
+		life = maxHealt
+		for i in life:
+			$Control.addHeart()
+		Global.enemies.clear()
+		Global.dung1EKilled.clear()
+		Global.dung2EKilled.clear()
+		Global.dung3EKilled.clear()
+		get_tree().current_scene.iniciar_overworld()

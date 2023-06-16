@@ -17,6 +17,11 @@ func _ready():
 	$".".add_child(pers, true)
 	Global.pos_over=$Player.get_global_position()
 	iniciar_ciutat()
+	
+func _process(delta):
+	if Input.is_action_just_pressed("ui_accept"):
+		print("Falten: ", Global.enemies.size())
+		print("Morts: ", Global.dung1EKilled.size(), ": ", Global.dung1EKilled)
 
 func iniciar_ciutat():
 	if(!first_over):
@@ -53,7 +58,11 @@ func iniciar_dungeon_1():
 	Global.enemies.clear()
 	for child in dung1.get_children():
 		if child.is_class("Path2D"):
-			Global.enemies.append(child)
+			Global.enemies.append(child.name)
+	for g in Global.dung1EKilled:
+		var eIndex = Global.enemies.find(g)
+		dung1.get_node(g).queue_free()
+		Global.enemies.remove(eIndex)
 	currentSpace = dung1
 
 func iniciar_dungeon_2():
@@ -97,7 +106,7 @@ func iniciar_dungeon_3():
 	currentSpace = dung3
 
 func iniciar_overworld():
-	$TileMap.queue_free()
+	get_child(0).queue_free()
 	var overworld = ESC_OVER.instance() 
 	call_deferred("add_child", overworld)
 	call_deferred("move_child",overworld,0)

@@ -3,6 +3,7 @@ class_name GoblinController extends PathFollow2D
 export var speed:float = 5.0
 export var maxDistance:float = 60.0
 export var attackVelocity:float = 3.0
+export var currentDungeon:int = 0
 
 var arrowScene = preload("res://Scenes/Arrow.tscn")
 
@@ -52,7 +53,13 @@ func _physics_process(delta):
 		moving = true
 	
 	if touchingPlayer && player.isAttacking:
-		var eIndex = Global.enemies.find(get_parent())
+		if currentDungeon == 1:
+			Global.dung1EKilled.append(get_parent().name)
+		elif currentDungeon == 2:
+			Global.dung2EKilled.append(get_parent().name)
+		elif currentDungeon == 3:
+			Global.dung3EKilled.append(get_parent().name)
+		var eIndex = Global.enemies.find(get_parent().name)
 		Global.enemies.remove(eIndex)
 		self.queue_free()
 		if Global.enemies.size() <= 0:

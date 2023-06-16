@@ -81,6 +81,7 @@ curve = SubResource( 2 )
 position = Vector2( 419, 234 )
 scale = Vector2( 5, 5 )
 rotate = false
+currentDungeon = 2
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 855, -462 )
@@ -93,6 +94,7 @@ curve = SubResource( 3 )
 position = Vector2( -344, -1288 )
 rotation = 3.07322
 scale = Vector2( 5, 5 )
+currentDungeon = 2
 
 [node name="Path2D3" type="Path2D" parent="."]
 curve = SubResource( 4 )
@@ -101,6 +103,7 @@ curve = SubResource( 4 )
 position = Vector2( 1087, -623 )
 scale = Vector2( 5, 5 )
 rotate = false
+currentDungeon = 2
 
 [node name="Path2D4" type="Path2D" parent="."]
 curve = SubResource( 5 )
@@ -109,6 +112,7 @@ curve = SubResource( 5 )
 position = Vector2( 2742, -1828 )
 scale = Vector2( 5, 5 )
 rotate = false
+currentDungeon = 2
 
 [node name="Path2D5" type="Path2D" parent="."]
 curve = SubResource( 6 )
@@ -117,6 +121,7 @@ curve = SubResource( 6 )
 position = Vector2( 1847, -3215 )
 rotation = 0.37385
 scale = Vector2( 5, 5 )
+currentDungeon = 2
 
 [node name="Path2D6" type="Path2D" parent="."]
 curve = SubResource( 7 )
@@ -125,6 +130,7 @@ curve = SubResource( 7 )
 position = Vector2( 2725, -141 )
 scale = Vector2( 5, 5 )
 rotate = false
+currentDungeon = 2
 
 [node name="Path2D7" type="Path2D" parent="."]
 curve = SubResource( 8 )
@@ -133,6 +139,7 @@ curve = SubResource( 8 )
 position = Vector2( 6309, -1561 )
 scale = Vector2( 5, 5 )
 rotate = false
+currentDungeon = 2
 
 [node name="Path2D8" type="Path2D" parent="."]
 curve = SubResource( 9 )
@@ -141,5 +148,6 @@ curve = SubResource( 9 )
 position = Vector2( 5820, -1682 )
 scale = Vector2( 5, 5 )
 rotate = false
+currentDungeon = 2
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

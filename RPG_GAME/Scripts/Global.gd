@@ -5,7 +5,12 @@ var rubi_agafat=false
 var zafir_agafat=false
 var ambar_agafat=false
 var pos_over
+
 var enemies = []
+var dung1EKilled = []
+var dung2EKilled = []
+var dung3EKilled = []
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
