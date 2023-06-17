@@ -25,20 +25,32 @@ playback_speed = 0.2
 playback/speed = 0.2
 
 [node name="menu" type="Button" parent="."]
-margin_left = 701.0
-margin_top = 287.0
-margin_right = 799.0
-margin_bottom = 307.0
+margin_left = 719.0
+margin_top = 286.0
+margin_right = 817.0
+margin_bottom = 306.0
 rect_scale = Vector2( 1.5, 1.5 )
+rect_pivot_offset = Vector2( 50, 10 )
+focus_neighbour_top = NodePath("../sortir")
+focus_neighbour_bottom = NodePath("../sortir")
 text = "Menu"
 
 [node name="sortir" type="Button" parent="."]
-margin_left = 701.0
-margin_top = 375.0
-margin_right = 799.0
-margin_bottom = 395.0
+margin_left = 715.0
+margin_top = 374.0
+margin_right = 813.0
+margin_bottom = 394.0
 rect_scale = Vector2( 1.5, 1.5 )
+rect_pivot_offset = Vector2( 50, 10 )
+focus_neighbour_top = NodePath("../menu")
+focus_neighbour_bottom = NodePath("../menu")
 text = "Sortir"
 
+[connection signal="focus_entered" from="menu" to="." method="_on_menu_focus_entered"]
+[connection signal="focus_exited" from="menu" to="." method="_on_menu_focus_exited"]
+[connection signal="mouse_entered" from="menu" to="." method="_on_menu_mouse_entered"]
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
+[connection signal="focus_entered" from="sortir" to="." method="_on_sortir_focus_entered"]
+[connection signal="focus_exited" from="sortir" to="." method="_on_sortir_focus_exited"]
+[connection signal="mouse_entered" from="sortir" to="." method="_on_sortir_mouse_entered"]
 [connection signal="pressed" from="sortir" to="." method="_on_sortir_pressed"]

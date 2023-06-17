@@ -13,8 +13,23 @@ anchor_right = 0.5
 anchor_bottom = 0.4
 margin_right = 73.0
 margin_bottom = 20.0
+rect_pivot_offset = Vector2( 35, 10 )
+focus_neighbour_top = NodePath("../ExitGameButton")
+focus_neighbour_bottom = NodePath("../Save")
 text = "Continuar"
 icon_align = 1
+
+[node name="Save" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.45
+anchor_right = 0.5
+anchor_bottom = 0.45
+margin_right = 62.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 30, 10 )
+focus_neighbour_top = NodePath("../ContinueButton")
+focus_neighbour_bottom = NodePath("../ExitButton")
+text = "Guardar"
 
 [node name="ExitButton" type="Button" parent="."]
 anchor_left = 0.5
@@ -23,6 +38,9 @@ anchor_right = 0.5
 anchor_bottom = 0.55
 margin_right = 12.0
 margin_bottom = 20.0
+rect_pivot_offset = Vector2( 50, 10 )
+focus_neighbour_top = NodePath("../Save")
+focus_neighbour_bottom = NodePath("../ExitGameButton")
 text = "Sortir al menu"
 icon_align = 1
 
@@ -33,19 +51,29 @@ anchor_right = 0.5
 anchor_bottom = 0.6
 margin_right = 12.0
 margin_bottom = 20.0
+rect_pivot_offset = Vector2( 45, 10 )
+focus_neighbour_top = NodePath("../ExitButton")
+focus_neighbour_bottom = NodePath("../ContinueButton")
 text = "Sortir del joc"
 icon_align = 1
 
-[node name="Save" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.45
-anchor_right = 0.5
-anchor_bottom = 0.45
-margin_right = 12.0
-margin_bottom = 20.0
-text = "Guardar"
-
+[connection signal="focus_entered" from="ContinueButton" to="." method="_on_ContinueButton_focus_entered"]
+[connection signal="focus_exited" from="ContinueButton" to="." method="_on_ContinueButton_focus_exited"]
+[connection signal="mouse_entered" from="ContinueButton" to="." method="_on_ContinueButton_mouse_entered"]
+[connection signal="mouse_exited" from="ContinueButton" to="." method="_on_ContinueButton_mouse_exited"]
 [connection signal="pressed" from="ContinueButton" to="." method="_on_ContinueButton_pressed"]
-[connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
-[connection signal="pressed" from="ExitGameButton" to="." method="_on_ExitGameButton_pressed"]
+[connection signal="focus_entered" from="Save" to="." method="_on_Save_focus_entered"]
+[connection signal="focus_exited" from="Save" to="." method="_on_Save_focus_exited"]
+[connection signal="mouse_entered" from="Save" to="." method="_on_Save_mouse_entered"]
+[connection signal="mouse_exited" from="Save" to="." method="_on_Save_mouse_exited"]
 [connection signal="pressed" from="Save" to="." method="_on_Save_pressed"]
+[connection signal="focus_entered" from="ExitButton" to="." method="_on_ExitButton_focus_entered"]
+[connection signal="focus_exited" from="ExitButton" to="." method="_on_ExitButton_focus_exited"]
+[connection signal="mouse_entered" from="ExitButton" to="." method="_on_ExitButton_mouse_entered"]
+[connection signal="mouse_exited" from="ExitButton" to="." method="_on_ExitButton_mouse_exited"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="focus_entered" from="ExitGameButton" to="." method="_on_ExitGameButton_focus_entered"]
+[connection signal="focus_exited" from="ExitGameButton" to="." method="_on_ExitGameButton_focus_exited"]
+[connection signal="mouse_entered" from="ExitGameButton" to="." method="_on_ExitGameButton_mouse_entered"]
+[connection signal="mouse_exited" from="ExitGameButton" to="." method="_on_ExitGameButton_mouse_exited"]
+[connection signal="pressed" from="ExitGameButton" to="." method="_on_ExitGameButton_pressed"]
