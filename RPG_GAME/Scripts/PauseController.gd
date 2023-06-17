@@ -9,18 +9,22 @@ func _process(delta):
 		get_child(0).grab_focus()
 
 func _on_ContinueButton_pressed():
+	$OkSound.play()
 	self.visible = false
 	get_tree().paused = false
 
 
 func _on_ExitButton_pressed():
+	$OkSound.play()
 	Global.sortir_menu()
 
 
 func _on_ExitGameButton_pressed():
+	$OkSound.play()
 	get_tree().quit()
 	
 func _on_Save_pressed():
+	$OkSound.play()
 	var file = File.new()
 	var data = Global.get_json()
 	file.open(Global.FILE_NAME, File.WRITE)

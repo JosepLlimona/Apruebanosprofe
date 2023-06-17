@@ -88,7 +88,6 @@ curve = SubResource( 3 )
 
 [node name="Goblin" parent="Path2D2" instance=ExtResource( 3 )]
 position = Vector2( -344, -1288 )
-rotation = 3.07322
 scale = Vector2( 5, 5 )
 rotate = false
 currentDungeon = 2
@@ -116,7 +115,6 @@ curve = SubResource( 6 )
 
 [node name="Goblin" parent="Path2D5" instance=ExtResource( 3 )]
 position = Vector2( 1847, -3215 )
-rotation = 0.37385
 scale = Vector2( 5, 5 )
 rotate = false
 currentDungeon = 2

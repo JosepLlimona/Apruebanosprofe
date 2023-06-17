@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/PauseController.gd" type="Script" id=1]
 [ext_resource path="res://Audio/Select 1.wav" type="AudioStream" id=2]
+[ext_resource path="res://Audio/Confirm 1.wav" type="AudioStream" id=3]
 
 [node name="PauseMenu" type="CanvasLayer"]
 pause_mode = 2
@@ -60,6 +61,9 @@ icon_align = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+
+[node name="OkSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="focus_entered" from="ContinueButton" to="." method="_on_ContinueButton_focus_entered"]
 [connection signal="focus_exited" from="ContinueButton" to="." method="_on_ContinueButton_focus_exited"]

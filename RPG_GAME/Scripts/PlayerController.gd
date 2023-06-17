@@ -46,7 +46,14 @@ func addLife():
 	maxHealt +=1
 	$Control.addHeart()
 
+func recovery():
+	life = maxHealt
+	print("Life: ", life, "MaxHealth: ", maxHealt)
+	$Control.recovery(life)
+
 func getHurt():
+	if !$HitSound.playing:
+		$HitSound.play()
 	$Camera2D.shake(0.1,10)
 	$Control.removeHeart()
 	life -= 1

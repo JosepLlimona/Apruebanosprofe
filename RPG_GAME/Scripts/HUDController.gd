@@ -19,6 +19,15 @@ func addHeart():
 	add_child(texture)
 	xPos += 40
 
+func recovery(num):
+	print(hearts.size())
+	for i in hearts.size():
+		print("Borrant")
+		removeHeart()
+	for i in num:
+		print("Afegint")
+		addHeart()
+
 func removeHeart():
 	if !hearts.empty():
 		hearts.pop_back().queue_free()

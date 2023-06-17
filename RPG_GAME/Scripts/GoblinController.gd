@@ -2,7 +2,7 @@ class_name GoblinController extends PathFollow2D
 
 export var speed:float = 5.0
 export var maxDistance:float = 60.0
-export var attackVelocity:float = 1.5
+export var attackVelocity:float = 2
 export var currentDungeon:int = 0
 
 var arrowScene = preload("res://Scenes/Arrow.tscn")

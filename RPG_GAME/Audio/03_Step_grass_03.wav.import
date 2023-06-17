@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/03_Step_grass_03.wav-47ebd32a0966cbb194d0b77b766a7039.sample"
+
+[deps]
+
+source_file="res://Audio/03_Step_grass_03.wav"
+dest_files=[ "res://.import/03_Step_grass_03.wav-47ebd32a0966cbb194d0b77b766a7039.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
