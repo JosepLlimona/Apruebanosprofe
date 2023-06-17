@@ -2,7 +2,7 @@ class_name GoblinController extends PathFollow2D
 
 export var speed:float = 5.0
 export var maxDistance:float = 60.0
-export var attackVelocity:float = 3.0
+export var attackVelocity:float = 1.5
 export var currentDungeon:int = 0
 
 var arrowScene = preload("res://Scenes/Arrow.tscn")
@@ -53,17 +53,15 @@ func _physics_process(delta):
 		moving = true
 	
 	if touchingPlayer && player.isAttacking:
-		if currentDungeon == 1:
-			Global.dung1EKilled.append(get_parent().name)
-		elif currentDungeon == 2:
-			Global.dung2EKilled.append(get_parent().name)
-		elif currentDungeon == 3:
-			Global.dung3EKilled.append(get_parent().name)
-		var eIndex = Global.enemies.find(get_parent().name)
-		Global.enemies.remove(eIndex)
-		self.queue_free()
-		if Global.enemies.size() <= 0:
-			get_tree().current_scene.activarJoia()
+		player.get_node("SwordSwing").stop()
+		$AudioStreamPlayer.play()
+		visible = false
+		timer = Timer.new()
+		add_child(timer)
+		timer.connect("timeout", self, "_on_Timer_timeout2")
+		timer.set_wait_time(0.34)
+		timer.set_one_shot(false)
+		timer.start()
 
 func _on_Timer_timeout():
 	shooting = true
@@ -73,6 +71,20 @@ func _on_Timer_timeout():
 	arrow.global_position = $Area2D/RayCast2D.global_position
 	add_child(arrow)
 	$Area2D/AnimationTree.get("parameters/playback").travel("Shoot")
+
+func _on_Timer_timeout2():
+	if currentDungeon == 1:
+		Global.dung1EKilled.append(get_parent().name)
+	elif currentDungeon == 2:
+		Global.dung2EKilled.append(get_parent().name)
+	elif currentDungeon == 3:
+		Global.dung3EKilled.append(get_parent().name)
+	var eIndex = Global.enemies.find(get_parent().name)
+	Global.enemies.remove(eIndex)
+	print("Borrant")
+	self.queue_free()
+	if Global.enemies.size() <= 0:
+		get_tree().current_scene.activarJoia()
 	
 func shoot():
 	shooting = false

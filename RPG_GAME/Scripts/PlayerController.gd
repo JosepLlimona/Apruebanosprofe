@@ -29,9 +29,14 @@ func _physics_process(delta):
 		$AnimationTree.set("parameters/Walk/blend_position", velocity)
 		$AnimationTree.set("parameters/Attack/blend_position", velocity)
 	if Input.is_action_just_pressed("attack") && !isAttacking && Global.espasa_agafada:
+		if !$SwordSwing.playing:
+			$SwordSwing.play()
 		$AnimationTree.get("parameters/playback").travel("Attack")
 		
 	move_and_slide(velocity * speed)
+
+func playAudio():
+	$AudioStreamPlayer.play()
 
 func attack():
 	isAttacking = !isAttacking

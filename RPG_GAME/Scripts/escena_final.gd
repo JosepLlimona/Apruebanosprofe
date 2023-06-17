@@ -5,6 +5,7 @@ func _ready():
 	$RichTextLabel/Tween.interpolate_property($RichTextLabel, "percent_visible", 0.0, 1.0, 1.0,Tween.TRANS_LINEAR)
 	$RichTextLabel/Tween.start()
 	$menu.grab_focus()
+	$AudioStreamPlayer.play()
 
 func _on_menu_pressed():
 	get_tree().paused = false
@@ -17,6 +18,7 @@ func _on_sortir_pressed():
 
 func _on_menu_focus_entered():
 	$menu.rect_scale += Vector2(0.3,0.3)
+	$SelectSound.play()
 
 
 func _on_menu_focus_exited():
@@ -29,6 +31,7 @@ func _on_menu_mouse_entered():
 
 func _on_sortir_focus_entered():
 	$sortir.rect_scale += Vector2(0.3,0.3)
+	$SelectSound.play()
 
 
 func _on_sortir_focus_exited():
@@ -37,3 +40,7 @@ func _on_sortir_focus_exited():
 
 func _on_sortir_mouse_entered():
 	$sortir.grab_focus()
+
+
+func _on_Tween_tween_step(object, key, elapsed, value):
+	$TextSound.play()

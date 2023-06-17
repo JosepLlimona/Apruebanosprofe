@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/11_Dungeon_3_Master.ogg-e02343322612e28da59669bfbe7d415b.oggstr"
+
+[deps]
+
+source_file="res://Audio/Music/11_Dungeon_3_Master.ogg"
+dest_files=[ "res://.import/11_Dungeon_3_Master.ogg-e02343322612e28da59669bfbe7d415b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

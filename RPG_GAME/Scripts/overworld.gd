@@ -10,6 +10,7 @@ func _ready():
 	area_dung2=false
 	area_dung3=false
 	area_city=false
+	$AudioStreamPlayer.play()
 
 func _unhandled_input(event:InputEvent) -> void:
 	if event.is_action_pressed("Pick"):

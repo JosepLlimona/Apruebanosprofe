@@ -10,6 +10,7 @@ signal cartell()
 func _ready():
 	mirar_cartell=false
 	cart_visible=false
+	$AudioStreamPlayer.play()
 
 
 func _on_Area2D_body_entered(body):

@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/dungeons.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Goblin.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Audio/Music/15_Boss_2_Master.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Scenes/Amber.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -146,5 +147,8 @@ position = Vector2( 5820, -1682 )
 scale = Vector2( 5, 5 )
 rotate = false
 currentDungeon = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

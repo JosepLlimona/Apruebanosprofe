@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/14_Battle_3_Master.ogg-66bb8ad1a883b82cc8f4cab261479019.oggstr"
+
+[deps]
+
+source_file="res://Audio/Music/14_Battle_3_Master.ogg"
+dest_files=[ "res://.import/14_Battle_3_Master.ogg-66bb8ad1a883b82cc8f4cab261479019.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

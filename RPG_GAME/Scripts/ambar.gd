@@ -9,8 +9,11 @@ func _ready():
 func _unhandled_input(event:InputEvent) -> void:
 	if contact:
 		if event.is_action_pressed("Pick"):
+			$AudioStreamPlayer.play()
+			visible = false
 			Global.agafar_objecte("ambar")
 			get_tree().current_scene.get_node("Player").addLife()
+			yield(get_tree().create_timer(0.49), "timeout")
 			queue_free()
 
 func activar():

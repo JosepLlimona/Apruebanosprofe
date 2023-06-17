@@ -15,3 +15,7 @@ func posar_text(text):
 	$RichTextLabel.set_text(text)
 	$RichTextLabel/Tween.interpolate_property($RichTextLabel, "percent_visible", 0.0, 1.0, 1.0,Tween.TRANS_LINEAR)
 	$RichTextLabel/Tween.start()
+
+
+func _on_Tween_tween_step(object, key, elapsed, value):
+	$AudioStreamPlayer.play()

@@ -43,6 +43,7 @@ func _on_Save_mouse_entered():
 
 func _on_ContinueButton_focus_entered():
 	$ContinueButton.rect_scale += Vector2(0.3,0.3)
+	$AudioStreamPlayer.play()
 
 
 func _on_ContinueButton_focus_exited():
@@ -51,6 +52,7 @@ func _on_ContinueButton_focus_exited():
 
 func _on_Save_focus_entered():
 	$Save.rect_scale += Vector2(0.3,0.3)
+	$AudioStreamPlayer.play()
 
 
 func _on_Save_focus_exited():
@@ -59,12 +61,14 @@ func _on_Save_focus_exited():
 
 func _on_ExitButton_focus_entered():
 	$ExitButton.rect_scale += Vector2(0.3,0.3)
+	$AudioStreamPlayer.play()
 
 func _on_ExitButton_focus_exited():
 	$ExitButton.rect_scale -= Vector2(0.3,0.3)
 
 func _on_ExitGameButton_focus_entered():
 	$ExitGameButton.rect_scale += Vector2(0.3,0.3)
+	$AudioStreamPlayer.play()
 
 func _on_ExitGameButton_focus_exited():
 	$ExitGameButton.rect_scale -= Vector2(0.3,0.3)
